@@ -40,10 +40,8 @@
   box-shadow: 0 0 12px var(--card-shadow);
 }
 
-.iconWrapper {}
-
 .icon {
-  --card-icon-color: #00451f;
+  --card-icon-color: var(--primary-base-color);
   display: inline-block;
   position: relative;
   transition-duration: 300ms;
@@ -51,6 +49,7 @@
   color: var(--card-icon-color);
   font-size: 32px;
 }
+
 .icon::after {
   content: "";
   display: block;
@@ -72,8 +71,8 @@
 }
 
 .link {
-  --card-icon-color: #00a349;
-  color: var(--card-icon-color);
+  --card-link-color: var(--highlight-color);
+  color: var(--card-link-color);
   text-decoration: none;
   display: flex;
   gap: 6px;
