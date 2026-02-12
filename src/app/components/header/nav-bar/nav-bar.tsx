@@ -1,12 +1,24 @@
+import Link from "next/link";
 import styles from "./nav-bar.module.css";
+
+const links = [
+  { href: '#', text: 'Docs' },
+  { href: '#', text: 'API Reference' },
+  { href: '#', text: 'Features' },
+  { href: '#', text: 'Use Cases' },
+]
+
+const menuItems = links.map(({ href, text }, index) => (
+  <li key={index}>
+    <Link href={href} className={styles.menuLink}>{text}</Link>
+  </li>
+))
 
 export default function NavBar() {
   return (
     <nav>
-      <ul className={styles.navBarList}>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
+      <ul className={styles.navBarMenu}>
+        {menuItems}
       </ul>
     </nav>
   )
