@@ -57,7 +57,7 @@ export default function FaqItem({ question, answer }: FaqItemProps) {
        */}
       <button
         type="button"
-        className={styles.header}
+        className={styles.faqHeader}
         onClick={handleToggle}
       >
         {/** Question text */}

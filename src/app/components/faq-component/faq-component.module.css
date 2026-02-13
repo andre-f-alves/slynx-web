@@ -39,14 +39,14 @@
   z-index: 0;
 }
 
-.header,
+.faqHeader,
 .content {
   position: relative;
   z-index: 1;
 }
 
 /* Header section */
-.header {
+.faqHeader {
   width: 100%;
   background: transparent;  
   border: none;
