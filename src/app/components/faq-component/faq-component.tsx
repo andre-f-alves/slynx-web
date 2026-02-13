@@ -29,10 +29,23 @@ type FaqItemProps = {
  * @param props.question FAQ question
  * @param props.answer FAQ answer
  * @returns JSX.Element representing an expandable FAQ item
+ *
+ * @example
+ * ```tsx
+ * <FaqItem
+ *   question="What is React?"
+ *   answer="React is a JavaScript library for building user interfaces."
+ * />
+ * ```
  */
 export default function FaqItem({ question, answer }: FaqItemProps) {
   // State to toggle FAQ open/close
   const [open, setOpen] = useState(false);
+
+  // Handles open/close toggle
+  function handleToggle() {
+    setOpen((prev) => !prev);
+  }
 
   return (
     /** FAQ container */
@@ -45,7 +58,7 @@ export default function FaqItem({ question, answer }: FaqItemProps) {
       <button
         type="button"
         className={styles.header}
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={handleToggle}
       >
         {/** Question text */}
         <span>{question}</span>

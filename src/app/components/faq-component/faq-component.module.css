@@ -1,5 +1,7 @@
 
-:root {
+/* Main container */
+/* Main container with scoped variables */
+.container {
   --container-width: 500px;
   --container-bg: #050505;      
   --container-border: #2a2a2d;
@@ -12,14 +14,11 @@
   --icon-color: #464444;
   --answer-color: #bdbdbd;
   --transition-speed: 0.3s;
-}
 
-/* Main container */
-.container {
   position: relative;
   max-width: 100%;
   width: var(--container-width);
-  background: linear-gradient(to left, #050505, #0c0c0c);
+  background: linear-gradient(to left, var(--container-bg), #0c0c0c);
   border: 2px solid var(--container-border);
   border-radius: var(--container-radius);
   margin: 16px auto;
