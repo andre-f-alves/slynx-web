@@ -2,6 +2,11 @@
   --background: #ffffff;
   --foreground: #171717;
 
+  --frame-background: #1b1b1b;
+  --frame-foreground: #ededed;
+
+  --title-color: #000;
+
   /* Pallete */
   --primary-base-color: #00451f;
   --secondary-base-color: #007334;
@@ -9,11 +14,24 @@
   --highlight-color: #00db63;
   --hover-color: #01ff72;
 
-  --title-color: #000;
+  --hover-button: #f0f0f0;
+
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
   --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
   --frame-round: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1b1b1b;
+    --foreground: #ededed;
+
+    --frame-background: #fff;
+    --frame-foreground: #000;
+    
+    --title-color: #fff;
+  }
 }
 
 * {
@@ -23,25 +41,28 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-button {
-  all: unset;
-}
-
-body, html {
+body,
+html {
   width: 100vw;
   height: 100vh;
   padding: var(--page-padding);
   overflow: hidden;
 
-  /* remove later */
   background-color: var(--background);
+  color: var(--foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1b1b1b;
-    --foreground: #ededed;
+button {
+  all: unset;
+  cursor: pointer;
 
-    --title-color: #fff;
+  &:has(svg) {
+    line-height: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--hover-button);
+    }
   }
 }

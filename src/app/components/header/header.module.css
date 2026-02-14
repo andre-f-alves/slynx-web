@@ -1,14 +1,32 @@
 .header {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-areas: "logo actions nav";
+  grid-template-columns: 1fr max-content max-content;
+  gap: 2rem;
   align-items: center;
-  width: 100%;
+  max-width: 120rem;
   padding: .5rem 2rem;
+  margin-inline: auto;
+  background-color: var(--frame-background);
+  color: var(--frame-foreground);
+}
 
-  /* remove later */
-  background-color: white;
-  outline: 1px solid black;
+@media (width >= 1024px) {
+  .header {
+    grid-template-areas: "logo nav actions";
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.logoContainer {
+  grid-area: logo;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
 }
 
 .title {
@@ -16,27 +34,41 @@
 }
 
 .actions {
+  grid-area: actions;
   display: flex;
   align-items: center;
   justify-self: end;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .iconBtn {
   height: max-content;
   padding: .3rem;
   border-radius: 50%;
-  line-height: 0;
 }
 
-.getStartedBtn {
-  background-color: var(--highlight-color);
+:global(.getStartedLink) {
   padding: .3rem 1rem;
   border-radius: .5rem;
+  text-decoration: none;
   font-weight: 600;
+  color: currentColor;
+  background-color: var(--highlight-color);
   transition: background-color .2s ease;
 
-  &:hover {
-    background-color: var(--hover-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--hover-color);
+    }
+  }
+}
+
+.headerGetStartedLink {
+  display: none;
+}
+
+@media (width >= 640px) {
+  .headerGetStartedLink {
+    display: inline-block;
   }
 }
